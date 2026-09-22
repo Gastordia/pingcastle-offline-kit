@@ -27,8 +27,20 @@ sudo apt install -y p7zip-full
 
 Individual part hashes are stored in `SHA256SUMS`.
 
+## Run the health check on Ubuntu
+
+After extraction, use the included diagnostic wrapper:
+
+```bash
+chmod +x run-pingcastle-audit.sh
+./run-pingcastle-audit.sh ./pingcastle/PingCastle.exe
+```
+
+It checks Wine, DNS, ports, and application startup before prompting for the AD
+password. To omit PingCastle's null-session and DC RPC probes, set
+`SAFE_MODE=true` before the command.
+
 ## Handling
 
 Keep this repository private. The bundle and generated reports may contain
 licensed configuration and sensitive Active Directory assessment data.
-
